@@ -2,6 +2,7 @@ package modelo;
 
 import java.sql.*;
 import java.util.UUID;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -58,6 +59,8 @@ public class tbDentista {
     private int Edad_Dentista;
     private double Peso_Dentista;
     private String Correo_Dentista;
+    
+    frmDentistas vista = new frmDentistas();
     
     public void Mostrar(JTable tabla) {
         //Creamos una variable de la clase de conexion
@@ -131,7 +134,8 @@ public class tbDentista {
  
             //Ejecutar la consulta
             addDentista.executeUpdate();
- 
+            
+            JOptionPane.showMessageDialog(vista, "Dentista Agregado con exito", "Registro Exitoso!", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
             System.out.println("este es el error en el modelo:metodo guardar " + ex);
         }
@@ -174,6 +178,7 @@ public class tbDentista {
                 updateDentista.setString(4, getCorreo_Dentista());
                 updateDentista.setString(5, miUUId);
                 updateDentista.executeUpdate();
+                JOptionPane.showMessageDialog(vista, "Dentista Actualizado con exito", "Actualización Exitosa!", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (Exception e) {
                 System.out.println("este es el error en el metodo de actualizar" + e);
