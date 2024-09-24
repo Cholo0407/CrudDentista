@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import modelo.tbDentista;
 import vista.frmDentistas;
+import vista.frmInicio;
 
 /**
  *
@@ -26,6 +27,7 @@ public class ctrlDentistas implements MouseListener, KeyListener {
         vista.btnActualizar.addMouseListener(this);
         vista.btnLimpiar.addMouseListener(this);
         vista.txtBuscar.addKeyListener(this);
+        vista.imgBack.addMouseListener(this);
         vista.jtDentistas.addMouseListener(this);
         modelo.Mostrar(vista.jtDentistas);
     }
@@ -40,6 +42,11 @@ public class ctrlDentistas implements MouseListener, KeyListener {
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        
+        if(e.getSource() == vista.imgBack){
+            frmInicio.initfrmInicio();
+            vista.dispose();
+        }
         
         if(e.getSource() == vista.btnEliminar){
             if(vista.jtDentistas.getSelectedRow() == -1){
