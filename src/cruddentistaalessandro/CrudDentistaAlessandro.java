@@ -4,6 +4,8 @@
  */
 package cruddentistaalessandro;
 
+import vista.frmDentistas;
+
 /**
  *
  * @author Estudiante
@@ -15,6 +17,7 @@ public class CrudDentistaAlessandro {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        frmDentistas.initfrmDentistas(); 
     }
     
 }
